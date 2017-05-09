@@ -1,6 +1,6 @@
 # [Snyppr](https://github.com/hrla14-snippr/snippr)
 
-Snyppr is a fullstack web applicaiton for getting on demand hair cuts. If you're the type of person that needs a hair cut, but hates having to schedule, travel, and wait to get a haircut, Snyppr has you covered. Just load up the app, find a barber that's 20 miles within your location, and then schedule an appointment.
+Snyppr is a fullstack web applicaiton for getting on demand hair cuts. If you're the type of person that needs a hair cut, but hates having to schedule, travel, and wait to get a haircut, Snyppr has you covered. Just load up the app, find a barber that's within 20 miles of your location, and then schedule a Snyp.
 
 ## Table of contents
 
@@ -11,71 +11,36 @@ Snyppr is a fullstack web applicaiton for getting on demand hair cuts. If you're
 
 ## Quick start
 
-When you run these commands in the Terminal, please don't include the $ dollar sign. It's just a coding convention to indicate what command should be entered into the Terminal.
-
-- Clone the repo locally to your computer by entering the following command into the Terminal: `$ git clone https://github.com/hrla14-snippr/snippr`
+- Fork a copy of the repo and then clone the repo locally to your computer by forking via the Github GUI, and then entering the following command into the Terminal: `$ git clone https://github.com/[your_username_here]/snippr`
 - Make sure you have [npm](https://www.npmjs.com) installed.
 - Once npm is installed, run the following commands in separate Terminal tabs:
-  - `$ npm install` to install the npm dependencies in the `package.json` file. Please be patient, it'll take awhile to load the dependencies.
-  - `$ npm start` to start the server on `localhost:3000`.
+  - `$ npm install` to install the npm dependencies in the `package.json` file. 
   - If you need seed/dummy data in your database, run `$ npm run seed`.
+- Set a `PORT` variable in your .env file
 
-- Navigate to [http://localhost:3000/](http://localhost:3000/) on your favorite web browser to be directed to the login page.
+- Run `$ npm start` and navigate to [http://localhost:[YOUR_PORT]/](http://localhost:[YOUR_PORT]/) on your favorite web browser to be directed to the login page.
   - On the landing page to Snyppr, you'll have the option of either signing up as a Snyppr (a barber) or as a Snypee (a client that's looking for a haircut).
 
+### APIs You Will Need
+- Make an account and replace the public key in the code with yours
+  - Auth0
+  - Stripe
+  - Google Maps Geocoding and Places APIs
 
-### What's included
+## Deploying
+- Deploy to aws and add the following keys to your .env file with these variable names: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
+  - Or your choice of hosting service and replace the aforementioned variables in the code.
 
-Within the download you should find the following directories and files:
+## Current Snyppr issues
 
-```
-client/
-|
-dev/
-|
-public/
-|
-server/
-|
-.env
-|
-.eslintrc.js
-|
-.gitignore
-|
-package.json
-|
-README.md
-|
-webpack.config.js
-```
-
-
-
-## Bugs, feature requests, and contributing
-
-Have a bug, feature request, or issue that has not addressed yet, [please open a new issue](https://github.com/hrla14-snippr/snippr) with a few small caveats:
-
-- Constructive criticism is always welcome, but...
- - No trolling.
- - Don't be sexist/racist/homophobic/`add other inappropriate behavior here`.
- - Always be respectful.
-- In other words, be nice.
-
-
-
-## Current Snyppr issues and wishlist
-
-While Chatterbox in its current version 'works', some basic functionality still needs to be implemented, including:
-
-
-In the future, We'd like to implement the following features on this wishlist:
-
-
+- Here are some bugs we are aware of:
+  - If Snyppr signup is interrupted before you can make a Stripe account, you can't use that account because of the current routing logic.
+  - Any post to the database does not trigger a rerender and will not be reflected in the UI until you refresh.
+  - Sockets sent payment request to all connected channels instead of just one channel.
 
 ## Creators
 
-**Mariano Okpalefe, Project Owner**
+**Mariano Okpalefe, Product Owner**
 [https://github.com/Chimpytheape](https://github.com/Chimpytheape)
 
 **Kevin Liu, Scrum Master**
